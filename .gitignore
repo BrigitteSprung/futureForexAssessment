@@ -3,3 +3,10 @@ venv
 
 # PyCharm Environment
 .idea
+
+# Cached stuff
+*/__pycache__/*
+dashboard/__pycache__/*
+
+# Static
+static/*

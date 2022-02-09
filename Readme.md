@@ -6,7 +6,7 @@ and organise their clients' documentation.
 ## Overview
 
 ## Project Timeline
-**Start Date:** Wednesday, 09 February 2022
+**Start Date:** Wednesday, 09 February 2022 <br>
 **End Date:** Friday, 11 February 2022
 
 ## Technologies Used
