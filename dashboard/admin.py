@@ -1,26 +1,29 @@
 from django.contrib import admin
-
-# Register your models here.
-
 from .models import *
 
-# ENGAGEMENT HANDOVER
+# RELATIONSHIP MANAGER
 class RelationshipManagerAdmin(admin.ModelAdmin):
     list_display = ('name',)
     # list_filter = ['client']
     # raw_id_fields = ('client',)
 
-# ENGAGEMENT HANDOVER
+# CLIENT
 class ClientAdmin(admin.ModelAdmin):
     list_display = ('name', 'relationshipManager')
     # list_filter = ['client']
     raw_id_fields = ('relationshipManager',)
 
-# ENGAGEMENT HANDOVER
-class DocumentAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+# DOCUMENT REQUEST
+class DocumentRequestAdmin(admin.ModelAdmin):
+    list_display = ('client',)
     list_filter = ['client']
     raw_id_fields = ('client','relationshipManager')
+
+# DOCUMENT
+class DocumentAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    # list_filter = ['client']
+    raw_id_fields = ('documentRequest',)
 
 
 
@@ -30,3 +33,4 @@ class DocumentAdmin(admin.ModelAdmin):
 admin.site.register(RelationshipManager, RelationshipManagerAdmin)
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Document, DocumentAdmin)
+admin.site.register(DocumentRequest, DocumentRequestAdmin)

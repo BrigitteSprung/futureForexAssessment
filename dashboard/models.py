@@ -35,6 +35,13 @@ class Client(models.Model):
     def getOutstandingDocuments(self):
         return Document.objects.filter(client=self, submitted=False)
 
+class DocumentRequest(models.Model):
+    client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
+    relationshipManager = models.ForeignKey(RelationshipManager, on_delete=models.DO_NOTHING)
+    email = models.EmailField(max_length=254, default='brigittesprung@gmail.com')
+    type = models.CharField(max_length=1028)
+    submitted = models.BooleanField(default=False)
+    created = models.DateTimeField(auto_now_add=True)
 
 class Document(models.Model):
     """
@@ -55,10 +62,9 @@ class Document(models.Model):
     name = models.CharField(max_length=1028)
     file = models.FileField(upload_to='tmp/%Y/%m/%d')
     created = models.DateTimeField(auto_now_add=True)
-    type = models.CharField(max_length=1028)
-    submitted = models.BooleanField(default=False)
-    client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
-    relationshipManager = models.ForeignKey(RelationshipManager, on_delete=models.DO_NOTHING)
+    documentRequest = models.ForeignKey(DocumentRequest, on_delete=models.DO_NOTHING)
+
+
 
     def __str__(self):
         return self.name
