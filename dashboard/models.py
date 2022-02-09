@@ -35,6 +35,7 @@ class Client(models.Model):
     def getOutstandingDocuments(self):
         return Document.objects.filter(client=self, submitted=False)
 
+
 class DocumentRequest(models.Model):
     client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
     relationshipManager = models.ForeignKey(RelationshipManager, on_delete=models.DO_NOTHING)
@@ -42,6 +43,10 @@ class DocumentRequest(models.Model):
     type = models.CharField(max_length=1028)
     submitted = models.BooleanField(default=False)
     created = models.DateTimeField(auto_now_add=True)
+
+    def getDocument(self):
+        return Document.objects.filter(documentRequest=self)
+
 
 class Document(models.Model):
     """
@@ -64,10 +69,5 @@ class Document(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     documentRequest = models.ForeignKey(DocumentRequest, on_delete=models.DO_NOTHING)
 
-
-
     def __str__(self):
         return self.name
-
-
-
