@@ -5,6 +5,22 @@
     <title>XX Client</title>
 </head>
 <body>
+    <h1>{{ client.name }}</h1>
+    <p>{{ client.description }}</p>
+    <h2>Document Requests</h2>
+    {% for request in requests %}
+        <div>
+        <h3>{{ request.type }}</h3>
+        <p>{{ request.created }}</p>
+        {% if request.submitted %}
+            {% for doc in request.getDocument %}
+                <p>{{ doc.name }}</p>
+                {{ doc.file }}
+                <a href="{{ doc.file.url }}" download  class="btn btn-dark float-right">Download</a>
 
+            {% endfor %}
+        {% endif %}
+        </div>
+    {% endfor %}
 </body>
 </html>
