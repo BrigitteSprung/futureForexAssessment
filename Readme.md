@@ -1,11 +1,13 @@
 # Future Forex Assessment
 This is a Django management app that allows Relationship Managers to easily maintain
-and organise their clients documentation.
+and organise their clients' documentation.
 
 
 ## Overview
 
 ## Project Timeline
+**Start Date:** Wednesday, 09 February 2022
+**End Date:** Friday, 11 February 2022
 
 ## Technologies Used
 - Django / Python
