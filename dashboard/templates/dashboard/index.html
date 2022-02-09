@@ -7,5 +7,13 @@
 <body>
 <h1>Welcome to Future Forex!</h1>
 <p>Please use the dashboard to manage your clients documents.</p>
+<div>
+    {% for client in clients %}
+        <h2>{{ client.name }}</h2>
+        <p>{{ client.description }}</p>
+        <a href="{% url 'client' client.id %}">View</a>
+        <button>Send Document Request</button>
+    {% endfor %}
+</div>
 </body>
 </html>
