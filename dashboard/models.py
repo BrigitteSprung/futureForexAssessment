@@ -8,6 +8,7 @@ class RelationshipManager(models.Model):
     """
     name = models.CharField(max_length=1028)
     created = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField(max_length=254, default='brigittesprung@gmail.com')
 
     def __str__(self):
         return self.name
@@ -33,7 +34,11 @@ class Client(models.Model):
         return Document.objects.filter(client=self)
 
     def getOutstandingDocuments(self):
-        return Document.objects.filter(client=self, submitted=False)
+        return DocumentRequest.objects.filter(client=self, submitted=False)
+
+
+    def getNumOutstandingDocuments(self):
+        return len(DocumentRequest.objects.filter(client=self, submitted=False))
 
 
 class DocumentRequest(models.Model):
