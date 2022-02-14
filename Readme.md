@@ -17,6 +17,11 @@ and organise their clients' documentation.
 ## Approach Taken
 ![Visual Planning](Future Forex Assessment 2022-02-08 20.39.11.excalidraw.png)
 
+## Getting started
+- You would need to set up a python environment
+- Currently the database already has some dummy data
+- It is using the first RelationalManager as the one 'logged in'
+
 ## Wins and Blockers
 ### Wins
 I already have some good experience with Django and quickly setting up a html frontend.
@@ -29,10 +34,11 @@ for a while now.
 Added email capabilities
 ```python
 send_mail(
-    'Testing',
-    message,
-    'brigitte.sprung.dev@gmail.com',
-    [email],
+    subject='Document Request',
+    message=message,
+    html_message=message,
+    from_email='brigitte.sprung.dev@gmail.com',
+    recipient_list=[email],
     fail_silently=False,
 )
 ```
