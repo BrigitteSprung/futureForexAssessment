@@ -4,12 +4,12 @@
 {% block content %}
 <h1>Welcome to Future Forex!</h1>
 <p>Please use the dashboard to manage your clients documents.</p>
-<div>
+<div class="container mb-2">
     {% for client in clients %}
         <h2>{{ client.name }}</h2>
         <p>{{ client.description }}</p>
-        <a href="{% url 'client' client.id %}">View</a>
-        <button>Send Document Request</button>
+        <a href="{% url 'client' client.id %}" class="btn btn-dark float-right">View</a>
+        <a href="{% url 'request' client.id %}" class="btn btn-dark float-right">Send Document Request</a>
     {% endfor %}
 </div>
 {% endblock %}
