@@ -4,19 +4,24 @@
 {% block content %}
     <h1>{{ client.name }}</h1>
     <p>{{ client.description }}</p>
-    <h2>Document Requests</h2>
+    <a href="{% url 'request' client.id %}" class="btn btn-dark float-right">Send Document Request</a>
+    <h2 class="mt-2">Document Requests</h2>
     {% for request in requests %}
-        <div>
-        <h3>{{ request.type }}</h3>
-        <p>{{ request.created }}</p>
-        {% if request.submitted %}
-            {% for doc in request.getDocument %}
-                <p>{{ doc.name }}</p>
-                {{ doc.file }}
-                <a href="{{ doc.file.url }}" download  class="btn btn-dark float-right">Download</a>
+        <div class="container border border-dark p-2">
+            <h3>{{ request.type }}</h3>
+            <p>{{ request.created }}</p>
+            {% if request.submitted %}
+                {% for doc in request.getDocument %}
+                    <div class="d-flex justify-content-between border">
+                        <p>{{ doc.name }}</p>
+                        <a href="{{ doc.file.url }}" download class="btn btn-dark float-right">Download</a>
+                    </div>
 
-            {% endfor %}
-        {% endif %}
+
+                {% endfor %}
+            {% else %}
+            <p>No Documents Submitted</p>
+            {% endif %}
         </div>
     {% endfor %}
 {% endblock %}
