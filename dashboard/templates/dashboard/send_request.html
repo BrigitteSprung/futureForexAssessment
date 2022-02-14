@@ -1,0 +1,14 @@
+{% extends 'dashboard/base_generic.html' %}
+{% load static %}
+
+{% block content %}
+    <h1>{{ client.name }}</h1>
+   <form enctype="multipart/form-data" action="{% url 'request' client.id %}" method="post">
+    {% csrf_token %}
+    <p>Type: <input type="text" name="type"/></p>
+    <p>Message: <input type="text" name="message"/></p>
+    <p>Client Email: <input type="email" name="email"/></p>
+    <p><input type="submit" class="btn btn-dark float-right" value="Create"/></p>
+</form>
+
+{% endblock %}
