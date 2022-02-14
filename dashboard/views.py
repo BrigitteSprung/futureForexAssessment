@@ -6,10 +6,6 @@ from django.views import generic
 from dashboard.models import *
 
 
-def index(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
-
-
 class DashboardView(generic.DetailView):
     template_name = "dashboard/index.html"
 
