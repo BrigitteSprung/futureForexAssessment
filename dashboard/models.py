@@ -34,14 +34,31 @@ class Client(models.Model):
         return Document.objects.filter(client=self)
 
     def getOutstandingDocuments(self):
+        # Get all the outstanding requests
         return DocumentRequest.objects.filter(client=self, submitted=False)
 
 
     def getNumOutstandingDocuments(self):
+        # Get the number of requests outstanding
         return len(DocumentRequest.objects.filter(client=self, submitted=False))
 
 
 class DocumentRequest(models.Model):
+    """
+      Document Request Object
+      Document Request created by RM
+
+      Attributes:
+      ----------
+      name : CharField
+          name of the file
+      email : EmailField
+          where to send the request
+      upload_date: DateTimeField
+          date the file was uploaded
+      client:
+          user who uploaded the file
+      """
     client = models.ForeignKey(Client, on_delete=models.DO_NOTHING)
     relationshipManager = models.ForeignKey(RelationshipManager, on_delete=models.DO_NOTHING)
     email = models.EmailField(max_length=254, default='brigittesprung@gmail.com')
@@ -66,8 +83,6 @@ class Document(models.Model):
         file uploaded
     upload_date: DateTimeField
         date the file was uploaded
-    client:
-        user who uploaded the file
     """
     name = models.CharField(max_length=1028)
     file = models.FileField(upload_to='tmp/%Y/%m/%d')
