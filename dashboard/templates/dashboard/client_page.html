@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>XX Client</title>
-</head>
-<body>
+{% extends 'dashboard/base_generic.html' %}
+{% load static %}
+
+{% block content %}
     <h1>{{ client.name }}</h1>
     <p>{{ client.description }}</p>
     <h2>Document Requests</h2>
@@ -22,5 +19,4 @@
         {% endif %}
         </div>
     {% endfor %}
-</body>
-</html>
+{% endblock %}

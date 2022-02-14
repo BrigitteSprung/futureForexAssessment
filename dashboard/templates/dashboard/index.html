@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Dashboard</title>
-</head>
-<body>
+{% extends 'dashboard/base_generic.html' %}
+{% load static %}
+
+{% block content %}
 <h1>Welcome to Future Forex!</h1>
 <p>Please use the dashboard to manage your clients documents.</p>
 <div>
@@ -15,5 +12,4 @@
         <button>Send Document Request</button>
     {% endfor %}
 </div>
-</body>
-</html>
+{% endblock %}

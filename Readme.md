@@ -9,6 +9,10 @@ and organise their clients' documentation.
 **Start Date:** Wednesday, 09 February 2022 <br>
 **End Date:** Friday, 11 February 2022
 
+1. Wednesday: Getting the project setup, basic models and views
+2. Thursday: Increased functionality, frontend views
+3. Friday: Styling and bug fixes
+
 ## Technologies Used
 - Django / Python
 - Basic HTML and CSS
