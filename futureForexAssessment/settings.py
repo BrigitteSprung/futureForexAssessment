@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -82,6 +82,20 @@ DATABASES = {
     }
 }
 
+# MEDIA
+MEDIA_DIR = os.path.join(BASE_DIR, 'tmp/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'tmp/')
+MEDIA_URL = '/'
+
+# EMAIL SETTINGS
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'brigitte.sprung.dev@gmail.com'
+EMAIL_HOST_PASSWORD = 'ms2Cf_/~'
+
+DEFAULT_FROM_EMAIL = 'brigitte.sprung.dev@gmail.com'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
