@@ -9,17 +9,13 @@ and organise their clients' documentation.
 **Start Date:** Wednesday, 09 February 2022 <br>
 **End Date:** Friday, 11 February 2022
 
-1. Wednesday: Getting the project setup, basic models and views
-2. Thursday: Increased functionality, frontend views
-3. Friday: Styling and bug fixes
-
 ## Technologies Used
 - Django / Python
 - Basic HTML and CSS
 - PyCharm IDE
 
 ## Approach Taken
-[Insert Visual Planning Here]
+![Visual Planning](Future Forex Assessment 2022-02-08 20.39.11.excalidraw.png)
 
 ## Wins and Blockers
 ### Wins
@@ -30,3 +26,13 @@ Had to quickly remember how to set up a Django app from the start, as I've been 
 for a while now.
 
 ## Visuals and Featured Code
+Added email capabilities
+```python
+send_mail(
+    'Testing',
+    message,
+    'brigitte.sprung.dev@gmail.com',
+    [email],
+    fail_silently=False,
+)
+```
